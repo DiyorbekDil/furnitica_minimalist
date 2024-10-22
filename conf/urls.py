@@ -7,11 +7,11 @@ from conf import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blogs/', include('blogs.urls', namespace='blogs')),
+    path('ordering/', include('ordering.urls', namespace='ordering')),
     path('products/', include('products.urls', namespace='products')),
     path('users/', include('users.urls', namespace='users')),
-    path('pages/', include('pages.urls', namespace='pages')),
-    path('', include('common.urls', namespace='common')),
+    path('blogs/', include('blogs.urls', namespace='blogs')),
+    path('', include('pages.urls', namespace='pages')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

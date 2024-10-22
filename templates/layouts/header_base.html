@@ -95,7 +95,7 @@
                     <!-- logo -->
                     <div class="col-sm-2 col-md-2 d-flex align-items-center">
                         <div id="logo">
-                            <a href="{% url 'common:home' %}">
+                            <a href="{% url 'pages:home' %}">
                                 <img src="{% static 'img/home/logo.png' %}" alt="logo" class="img-fluid">
                             </a>
                         </div>
@@ -110,7 +110,7 @@
                                     <div class="dropdown-menu">
                                         <ul>
                                             <li class="item">
-                                                <a href="{% url 'common:home' %}" title="Home Page 1">Home Page</a>
+                                                <a href="{% url 'pages:home' %}" title="Home Page 1">Home Page</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -160,7 +160,7 @@
                                                             <div class="menu-content">
                                                                 <ul>
                                                                     <li>
-                                                                        <a href="404.html">404 Page</a>
+                                                                        <a href="{% url 'pages:404' %}">404 Page</a>
                                                                     </li>
                                                                     <li>
                                                                         <a href="{% url 'pages:about' %}">About Us Page</a>
@@ -225,13 +225,13 @@
                                         </a>
                                     </div>
                                     <div>
-                                        <a class="check-out" href="{% url 'products:product_checkout' %}" rel="nofollow" title="Checkout">
+                                        <a class="check-out" href="{% url 'ordering:checkout' %}" rel="nofollow" title="Checkout">
                                             <i class="fa fa-check" aria-hidden="true"></i>
                                             <span>Checkout</span>
                                         </a>
                                     </div>
                                     <div class="link_wishlist">
-                                        <a href="{% url 'users:wishlist' %}" title="My Wishlists">
+                                        <a href="{% url 'ordering:user_wishlist' %}" title="My Wishlists">
                                             <i class="fa fa-heart"></i>
                                             <span>My Wishlists</span>
                                         </a>
@@ -312,8 +312,8 @@
                                                 <tr>
                                                     <td colspan="3" class="d-flex justify-content-center">
                                                         <div class="cart-button">
-                                                            <a href="cart.html" title="View Cart">View Cart</a>
-                                                            <a href="checkout.html" title="Checkout">Checkout</a>
+                                                            <a href="{% url 'ordering:cart' %}" title="View Cart">View Cart</a>
+                                                            <a href="{% url 'ordering:checkout' %}" title="Checkout">Checkout</a>
                                                         </div>
                                                     </td>
                                                 </tr>
