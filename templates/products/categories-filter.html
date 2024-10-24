@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load my_tags %}
 <div class="new-item-content">
             <h3 class="title-product">categories</h3>
             <ul class="scroll-product">
@@ -11,7 +12,7 @@
                     </label>
                     <a href="#">
                         <b>{{ category.name }}</b>
-                        <span class="quantity">{{ category.products.count }}</span>
+                        <span class="quantity">({{ category.products.count }})</span>
                     </a>
                 </li>
                 {% endfor %}

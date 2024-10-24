@@ -13,26 +13,13 @@ class ProductListView(ListView):
     model = ProductModel
     context_object_name = 'products'
 
+    def get_queryset(self):
+        return ProductModel.objects.all()
 
-class CategoryListView(ListView):
-    template_name = 'products/categories-filter.html'
-    model = CategoryModel
-    context_object_name = 'categories'
-
-
-class BrandsListView(ListView):
-    template_name = 'products/products-filter.html'
-    model = BrandModel
-    context_object_name = 'brands'
-
-
-class ColorsListView(ListView):
-    template_name = 'products/products-filter.html'
-    model = ColorModel
-    context_object_name = 'colors'
-
-
-class TagsListView(ListView):
-    template_name = 'products/products-filter.html'
-    model = TagModel
-    context_object_name = 'tags'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = CategoryModel.objects.all()
+        context['brands'] = BrandModel.objects.all()
+        context['tags'] = TagModel.objects.all()
+        context['colors'] = ColorModel.objects.all()
+        return context

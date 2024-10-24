@@ -1,6 +1,7 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% load i18n %}
+{% load my_tags %}
 {% block title %}Product list{% endblock %}
 {% block body_id %}product-sidebar-left{% endblock %}
 {% block content %}
@@ -109,8 +110,8 @@
                                                                 <div class="product-buttons d-flex justify-content-center">
                                                                     <form action="#" method="post" class="formAddToCart">
                                                                         <input type="hidden" name="id_product" value="1">
-                                                                        <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                        <a class="add-to-cart" href="{% url 'ordering:add-or-remove' pk=product.pk %}?next={{ request.path }}" data-button-action="add-to-cart">
+                                                                            <i {% if request|in_cart:product.pk %}style="color: red"{% endif %} class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                         </a>
                                                                     </form>
                                                                     <a class="addToWishlist" href="#" data-rel="1" onclick="">
